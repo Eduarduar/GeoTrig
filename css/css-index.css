@@ -1,0 +1,26 @@
+body{
+    color: #fff;
+    background: rgb(38, 38, 38);
+}
+
+.contenedor-central{
+    width: 700px;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size: 2.5rem;
+}
+
+h1, h2{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+form {
+    padding: 20px;
+}
