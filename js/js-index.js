@@ -33,6 +33,8 @@ const anterior = function () {
             form_actualNum = form_anteriorNum
             form_anterior = form_tipoDeTriangulo
             form_anteriorNum = 1
+            habilitarValidacion()
+            clear()
         }else {
             document.querySelector(".contenedor_form").appendChild(form_anterior)
             button_anterior.disabled = true
@@ -59,28 +61,47 @@ const siguientes = function () {
             button_anterior.disabled = false
             form_anteriorNum = 1
             form_anterior = form_actual
+            switch (value){
+                case "2": 
+                    document.querySelector(".contenedor_form").appendChild(form_isosceles)
+                    form_actual = form_isosceles
+                break
+                case "3":
+                    document.querySelector(".contenedor_form").appendChild(form_escaleno)
+                    form_actual = form_escaleno
+                break
+                case "4":
+                    document.querySelector(".contenedor_form").appendChild(form_rectangulo)
+                    form_actual = form_rectangulo
+                break
+            }
+            habilitarValidacion()
         }
-        switch (value){
-            case "2": 
-                document.querySelector(".contenedor_form").appendChild(form_isosceles)
-                form_actual = form_isosceles
-            break
-            case "3":
-                document.querySelector(".contenedor_form").appendChild(form_escaleno)
-                form_actual = form_escaleno
-            break
-            case "4":
-                document.querySelector(".contenedor_form").appendChild(form_rectangulo)
-                form_actual = form_rectangulo
-            break
-        } 
     }else{
-        
+        switch (form_actualNum){
+            case "2":
+                let pass = false
+                calcular_isosceles()
+                if (isosceles.angulo1 && isosceles.angulo2)
+                pass = true
+                if (isosceles.lado && isosceles.base)
+                pass = true
+                if (!pass){
+                    
+                }else{
+                    document.querySelector(".contenedor_form").innerHTML = `Angulo 1: ${cal_angulo1} <br> Angulo 2: ${cal_angulo2} <br> Angulo 3: ${cal_angulo3} <br> Lado 1: ${cal_lado1} <br> Lado 2: ${cal_lado2} <br> Base 3: ${cal_lado3} <br> Área: ${cal_area} <br> Altura: ${cal_altura}`
+                    form_anterior = form_actual
+                    form_anteriorNum = form_actualNum
+                    form_actualNum = 5
+                    form_actual = undefined
+                }
+            break
+            case 3:
+            break
+            case 4:
+            break
+        }
     }
-}
-
-const calcularTriangulo = function () {
-
 }
 
 button_siguiente.addEventListener('click', siguientes)
