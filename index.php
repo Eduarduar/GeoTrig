@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/index.css">
         <link rel="shortcut icon" href="./img/logo_GeoTrig.png" type="image/x-icon">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
         <title>GeoTrig</title>
     </head>
     <body>
@@ -34,18 +35,18 @@
                     <form>
 
                         <div class="contenedor_input">
-                            <label for="lado1">Lado 1</label>
-                            <input type="number" name="lado1" id="lado1">    
+                            <label for="hipotenusa">Hipotenusa</label>
+                            <input type="number" name="hipotenusa" id="hipotenusa">    
                         </div>
                         
                         <div class="contenedor_input">
-                            <label for="lado2">Lado 2</label>
-                            <input type="number" name="lado2" id="lado2">
+                            <label for="cateto1">Cateto 1</label>
+                            <input type="number" name="cateto1" id="cateto1">
                         </div>
                         
                         <div class="contenedor_input">
-                            <label for="base">Base</label>
-                            <input type="number" name="base" id="base">
+                            <label for="cateto2">Cateto 2</label>
+                            <input type="number" name="cateto2" id="cateto2">
                         </div>
                         
                         <div class="contenedor_button_confirmar">
@@ -56,8 +57,11 @@
                     
                 </div>
 
-                <div class="contenedor-trig">
-                    <canvas></canvas>
+                <div id="contenedor-trig" class="contenedor-trig">
+                </div>
+
+                <div class="contenedor-resp">
+                    <h3></h3>
                 </div>
                 
             </div>

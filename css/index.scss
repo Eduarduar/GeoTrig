@@ -121,6 +121,14 @@ main {
     }
   }
 
+  .contenedor-resp {
+    display: flex;
+    max-width: 30rem; 
+    margin-left: 2rem;
+    margin-top: 3rem;
+    text-align:left;
+  }
+
   .contenedor_button_confirmar {
     display: flex;
     flex-direction: column;
