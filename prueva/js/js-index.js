@@ -78,9 +78,9 @@ const siguientes = function () {
             habilitarValidacion()
         }
     }else{
+        let pass = false
         switch (form_actualNum){
             case "2":
-                let pass = false
                 calcular_isosceles()
                 if (isosceles.angulo1 && isosceles.angulo2)
                 pass = true
@@ -96,7 +96,22 @@ const siguientes = function () {
                     form_actual = undefined
                 }
             break
-            case 3:
+            case "3":
+                pass = false
+                calcular_escaleno()
+                if (escaleno.angulo1 && escaleno.angulo2)
+                pass = true
+                if (escaleno.lado && escaleno.base)
+                pass = true
+                if (!pass){
+                    
+                }else{
+                    document.querySelector(".contenedor_form").innerHTML = `Angulo 1: ${cal_angulo1} <br> Angulo 2: ${cal_angulo2} <br> Angulo 3: ${cal_angulo3} <br> Lado 1: ${cal_lado1} <br> Lado 2: ${cal_lado2} <br> Base 3: ${cal_lado3} <br> Área: ${cal_area} <br> Altura: ${cal_altura}`
+                    form_anterior = form_actual
+                    form_anteriorNum = form_actualNum
+                    form_actualNum = 5
+                    form_actual = undefined
+                }
             break
             case 4:
             break

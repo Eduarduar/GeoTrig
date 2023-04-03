@@ -46,6 +46,10 @@ const calcular_isosceles = function() {
   triangle(width/2-cal_lado3/2*escala, height/2 + cal_altura/2*escala, width/2+cal_lado3/2*escala, height/2+cal_altura/2*escala, width/2, height/2-cal_altura/2*escala)
 }
 
+const calcular_escaleno = function (){
+  
+}
+
 
 
 // codigo para dibujar el triangulo
