@@ -1,4 +1,4 @@
-let inputs = document.querySelectorAll('form input')
+var inputs = document.querySelectorAll('form input')
 const expresion = /^\d+(.\d+)?$/
 
 const formTrig = {
@@ -25,15 +25,15 @@ const formTrig = {
 
 const validarForm = (e) => {
     switch (e.target.name){
-        case 'lado1':
+        case 'hipotenusa':
             formTrig.lado1 = validarCampo(e.target)
         break
 
-        case 'lado2':
+        case 'cateto1':
             formTrig.lado2 = validarCampo(e.target)
         break
 
-        case 'base':
+        case 'cateto2':
             formTrig.base = validarCampo(e.target)
         break
     }
