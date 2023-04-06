@@ -67,6 +67,17 @@
             </div>
             
         </main>
+
+        <footer>
+            <div class="contenedor-central">
+                <div class="cartel">
+                    <div class="contenedor-title-info"><h2>¿Que es esto?</h2></div>
+                    <div class="contenedor-info"><p>
+                        Esta es una calculadora simple para calcular todos los datos de un triangulo rectangulo con solo 2 medidas de sus lados.
+                    </p></div>
+                </div>
+            </div>
+        </footer>
         
         <script src="./js/validaciones.js"></script>
         <script src="./js/index.js"></script>

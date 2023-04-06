@@ -57,7 +57,7 @@ const calcularTrig = function () {
             console.log(c)
         }
         // calculamos todos los angulos internos
-        if (tipo = 1){
+        if (tipo == 1){
             AI1 = radToDeg(Math.acos((a**2 + b**2 - c**2) / (2*a*b))) 
             AI2 = radToDeg(Math.acos((a**2 + c**2 - b**2) / (2*a*c)))
             AI3 = radToDeg(Math.acos((b**2 + c**2 - a**2) / (2*b*c)))
@@ -76,7 +76,7 @@ const calcularTrig = function () {
         s = (a + b + c) / 2
         area = Math.sqrt(s*(s-a)*(s-b)*(s-c))
 
-        datos = tipo === 1 ? {
+        datos = tipo == 1 ? {
         lado1:  c.toFixed(2),
         lado2:  b.toFixed(2),
         base:   a.toFixed(2),
@@ -87,11 +87,12 @@ const calcularTrig = function () {
         AE2:    AE2.toFixed(2),
         AE3:    AE3.toFixed(2),
         Area:   area.toFixed(2),
-        Altura: ((2 * area) / a).toFixed(2)
+        Altura: ((2 * area) / a).toFixed(2),
+        Tipo: tipo
         } : {
         lado1:  a.toFixed(2),
-        lado2:  b.toFixed(2),
-        base:   c.toFixed(2),
+        lado2:  c.toFixed(2),
+        base:   b.toFixed(2),
         AI1:    AI1.toFixed(2),
         AI2:    AI2.toFixed(2),
         AI3:    AI3.toFixed(2),
@@ -99,7 +100,8 @@ const calcularTrig = function () {
         AE2:    AE2.toFixed(2),
         AE3:    AE3.toFixed(2),
         Area:   area.toFixed(2),
-        Altura: ((2 * area) / c).toFixed(2)
+        Altura: ((2 * area) / c).toFixed(2),
+        Tipo: tipo
         }
         
         respuesta(datos)
@@ -126,7 +128,7 @@ const respuesta = function (triangleData) { // esta función se encargara de gra
     const canvasHeight = document.getElementById("contenedor-trig").offsetHeight;
     
     // Calcular el factor de escala
-    const scale = Math.min(canvasWidth / base, canvasHeight / altura) - 20;
+    const scale = Math.min((canvasWidth - 100) / base, (canvasHeight - 100) / altura);
     
     // Calcular el centro del canvas
     const centerX = canvasWidth / 2;
@@ -146,7 +148,7 @@ const respuesta = function (triangleData) { // esta función se encargara de gra
     noFill(); // Indicar que no se quiere relleno
     triangle(scaledX1, scaledY1, scaledX2, scaledY2, scaledX3, scaledY3);
 
-    document.querySelector('.contenedor-resp h3').innerHTML = `Lado 1: ${triangleData.lado1} <br><br>Lado 2: ${triangleData.lado2} <br><br>Base: ${triangleData.base} <br><br>Angulo Interno 1: ${triangleData.AI1} <br><br>Angulo Interno 2: ${triangleData.AI2} <br><br>Angulo Interno 3: ${triangleData.AI3} <br><br>Angulo Externo 1: ${triangleData.AE1} <br><br>Angulo Externo 2: ${triangleData.AE2} <br><br>Angulo Externo 3: ${triangleData.AE3} <br><br>Area: ${triangleData.Area} <br><br>Altura: ${triangleData.Altura}`
+    document.querySelector('.contenedor-resp h3').innerHTML = `Hipotenusa: ${triangleData.lado1} <br><br>Cateto1: ${triangleData.base} <br><br>Cateto 2: ${triangleData.lado2} <br><br>Angulo Interno 1: ${triangleData.AI1} <br><br>Angulo Interno 2: ${triangleData.AI2} <br><br>Angulo Interno 3: ${triangleData.AI3} <br><br>Angulo Externo 1: ${triangleData.AE1} <br><br>Angulo Externo 2: ${triangleData.AE2} <br><br>Angulo Externo 3: ${triangleData.AE3} <br><br>Area: ${triangleData.Area} <br><br>Altura: ${triangleData.Altura}`
 } 
 
 let boton = document.querySelector('.contenedor_button_confirmar button')
